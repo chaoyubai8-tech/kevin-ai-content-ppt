@@ -1,0 +1,430 @@
+/* Reference-led keynote system: image-led dark stages, light technical plates.
+   Palette is our adaptation, not an official Google/Gamma brand palette. */
+:root{--stage-bg:oklch(14% .009 260);--slide-bg:oklch(17% .013 260);--ink:oklch(97% .004 260);--muted:oklch(77% .023 260);--accent:oklch(79% .115 262);--line:oklch(37% .024 260)}
+.slide{background:var(--slide-bg)}
+.cinema-grid{opacity:.25}
+.toolbar,.controls{background:var(--stage-bg)}
+.brand::before{border-radius:50%}
+.toolbar button,.controls button{border-color:#ffffff16;border-radius:7px}
+#nextBtn,.stage-button{background:var(--accent);border-color:var(--accent);color:#102752}
+.stage-button:hover{background:#bad0ff}
+.cover{background:radial-gradient(ellipse at 83% 52%,#27354f 0,transparent 57%),var(--slide-bg)}
+.cover-copy .accent{color:#a9c4ff}
+.kevin-cover .cover-copy h1{font-size:136px;line-height:1.24;font-weight:600;letter-spacing:-.04em}
+.kevin-cover .cover-copy .lede{margin-top:46px}
+.cover .media-plane{border-radius:8px;box-shadow:0 40px 90px #0006}
+.media-plane .media-label{background:#11161ded}
+.cover-route span:first-child{color:var(--accent)}
+.kevin-slide h1{font-weight:600;letter-spacing:-.035em}
+.kevin-demo .demo-copy h1{font-weight:600;letter-spacing:-.035em}
+.video-scene{background:radial-gradient(ellipse at 73% 50%,#26345380,transparent 53%),#10141c}
+.k-results>div>strong,.k-overseas-copy>strong{font-weight:600;letter-spacing:-.04em}
+.k-china-proof img{border-radius:12px}
+.p-game-question h1{font-weight:600}
+.p-feedback-note p{color:#adc7ff}
+.p-stair-verb{font-weight:500}
+.k-close-copy h1{font-weight:600}
+
+/* Light architectural plates. Shape and hierarchy carry the system meaning. */
+.architecture-slide{background:oklch(98% .005 260);--ink:oklch(24% .025 265);--muted:oklch(45% .03 265);--line:oklch(83% .024 265);--accent:oklch(52% .21 264);--arch-source:oklch(43% .13 264);--arch-core:oklch(50% .22 264);--arch-execute:oklch(48% .19 264);--arch-ink:var(--ink);--arch-muted:var(--muted);color:var(--ink)}
+.arch-heading>p{color:#4269b3;font:600 30px/1.3 Manrope,'Noto Sans SC';margin-bottom:16px;letter-spacing:0}
+.arch-heading h1{font-size:70px!important;font-weight:600;letter-spacing:-.035em;line-height:1.25;color:#17243b}
+.arch-subtitle{font-size:30px;line-height:1.5;margin-top:18px;color:#596a84}
+.arch-subtitle:empty{display:none}
+.arch-board{top:211px}
+.arch-zone{position:absolute;border-radius:24px;background:#eaf0f9;z-index:-1}
+.arch-wires{z-index:0}
+.arch-wire-base{stroke:#8fa7cf;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.arch-wire-run{stroke:#2c64e7;stroke-width:4}
+.arch-wire.control .arch-wire-base{stroke:#577ebb;stroke-dasharray:5 8}
+.arch-wire.feedback .arch-wire-base{stroke:#9cacbf;stroke-dasharray:5 8}
+.arch-wire.audio .arch-wire-base{stroke:#568695}
+.arch-wire.audio .arch-wire-run{stroke:#166c80}
+.arch-node{border:0;border-radius:18px;padding:27px 30px;background:#fff;box-shadow:none;color:#17243b;transition:background 300ms,box-shadow 400ms,transform 450ms;translate:none}
+.arch-node .arch-kicker{font-size:28px;line-height:1.3;color:#4d6794;font-weight:400;margin-bottom:19px}
+.arch-node .arch-kicker:empty{display:none}
+.arch-node h2{font-size:43px!important;line-height:1.26;font-weight:600;color:#17243b;letter-spacing:-.025em;text-wrap:nowrap}
+.arch-node .arch-detail{font-size:30px!important;line-height:1.62;margin-top:21px;color:#53637b}
+.arch-node.core{background:#245adb;box-shadow:0 17px 38px #184eba20;border:1px solid #3164e0}
+.arch-node.core h2{font-size:51px!important;color:#fff}
+.arch-node.core .arch-kicker{color:#e1eaff}
+.arch-node.core .arch-detail{color:#edf3ff}
+.arch-core-foot{display:block;font-weight:400;border-top:1px solid #9bb7ff88;padding-top:20px;margin-top:27px;font-size:28px}
+.arch-node.bare{background:transparent;padding:0;border:0;box-shadow:none}
+.arch-node.result{background:transparent}
+.arch-node.arch-current{background:#fff;box-shadow:0 0 0 3px #3d70e833,0 16px 33px #36559c0c;translate:none}
+.arch-node.bare.arch-current{background:transparent;box-shadow:none}
+.arch-node.bare.arch-current h2{color:#2058cf}
+.arch-node.core.arch-current{background:#164fd8;box-shadow:0 0 0 7px #2f66e919,0 24px 48px #184eba29;transform:translateY(-5px)}
+.arch-node.arch-done{border-color:transparent}
+.arch-node[role="button"],.arch-picture[role="button"]{cursor:pointer}
+.arch-node[role="button"]:focus-visible,.arch-picture[role="button"]:focus-visible{outline:4px solid #295ed6;outline-offset:9px}
+.arch-node.bare:hover h2{color:#2058cf}
+.arch-line-label{background:#f7f9fc;color:#516783;font-size:28px;padding:3px 13px}
+.arch-line-label.arch-current{color:#1b55d0}
+.arch-line-label.audio{color:#166378}
+.arch-picture{position:absolute;z-index:1;margin:0;transition:transform 650ms cubic-bezier(.16,1,.3,1),box-shadow 400ms;box-shadow:0 14px 32px #14284b13;border-radius:12px;overflow:hidden}
+.arch-picture img{width:100%;height:100%;display:block;object-fit:cover}
+.arch-picture.source-picture img{object-position:50% 55%}
+.arch-picture.output-picture{border:4px solid #fff;box-shadow:0 17px 35px #172d5330;transform:rotate(3deg)}
+.arch-picture.output-picture img{object-fit:contain;background:#0c101a}
+.arch-picture.arch-current{transform:translateY(-7px)}
+.arch-picture.output-picture.arch-current{transform:rotate(0) translateY(-8px);box-shadow:0 20px 42px #1d4ab432}
+.arch-reddit #reddit-skills{padding:19px 30px;grid-template-columns:1.1fr 1fr;column-gap:24px}
+.arch-reddit #reddit-skills h2{font-size:49px!important}
+.arch-reddit #reddit-skills .arch-kicker{font-size:26px}
+.arch-reddit #reddit-skills .arch-detail{font-size:29px!important;line-height:1.7}
+.arch-reddit #reddit-source h2,.arch-reddit #reddit-result h2{font-size:40px!important}
+.arch-feedback-note{left:441px;top:595px;padding:7px 25px;gap:29px;background:#f7f9fc;color:#344967;font-size:30px}
+.arch-feedback-note b{color:#344967}.arch-feedback-note span{color:#586b88}.arch-feedback-note strong{color:#265ecc}
+.arch-narration{display:none}
+.arch-narration p{top:17px}
+.arch-daily #daily-source .arch-detail{font-size:29px!important}
+.arch-daily #daily-config{padding:26px 23px}
+.arch-daily #daily-config h2{font-size:35px!important}
+.arch-daily #daily-compose{padding:31px 30px}
+.arch-daily #daily-compose h2{font-size:48px!important}
+.arch-daily #daily-encode h2{font-size:32px!important}
+.arch-daily #daily-code h2{font-size:45px!important}
+.arch-daily #daily-render{padding-top:0}
+.arch-daily #daily-render h2{font-size:37px!important}
+.arch-daily #daily-render .arch-detail{margin-top:20px}
+.arch-holly #holly-capture h2{font-size:36px!important}
+.arch-holly #holly-plan{padding:33px 28px}
+.arch-holly #holly-plan h2{font-size:57px!important}
+.arch-holly #holly-plan .arch-core-foot{font-size:25px}
+.arch-holly #holly-game h2{font-size:36px!important}
+.arch-holly #holly-compose{padding:0}
+.arch-holly #holly-compose h2{font-size:37px!important}
+.arch-holly .arch-human-check{left:0;top:627px;width:100%;flex-wrap:nowrap;gap:34px;font-size:28px;color:#4b5f7c}
+.arch-human-check b{width:auto;color:#2458c0;font-weight:600}
+.arch-human-check span{padding:0}
+.arch-holly .arch-zone{border-radius:24px}
+.arch-holly #holly-capture .arch-kicker,.arch-holly #holly-voice .arch-kicker{font-size:30px;margin-bottom:16px;color:#375d9e}
+.arch-holly #holly-voice .arch-kicker{color:#176777}
+.arch-record .arch-node{background:#eaf0f9}
+.arch-record .arch-node.core{background:#245adb}
+.arch-record .arch-node h2{font-size:38px!important}
+.arch-record #record-clock h2{font-size:56px!important}
+.arch-record-delivery{background:#f7f9fc;top:510px}
+.arch-record-delivery span{display:none}
+.arch-record-delivery h2{font-size:39px;color:#263b5e}
+.arch-record-delivery p{color:#526580;font-size:29px}
+
+/* A second paper-like technical moment breaks the long run of dark pages. */
+[data-slide-id="reddit-human"].arch-copy-slide{background:#f7f9fc;--ink:#17243b;--muted:#566780;--accent:#245adb;--line:#ccdaed}
+[data-slide-id="reddit-human"].arch-copy-slide .arch-heading h1{font-size:74px!important}
+.arch-copy-comparison{gap:100px;margin-top:112px;grid-template-columns:1fr 1.15fr}
+.arch-copy-comparison section{border-top:1px solid #bbc9dd;padding-top:30px}
+.arch-copy-comparison section>p{color:#586d8c;font-size:30px}
+.arch-copy-comparison h2{color:#5a6980;font-size:52px;font-weight:400}
+.arch-copy-comparison section+section{background:#e9f0ff;border:0;padding:30px 42px 40px;border-radius:18px}
+.arch-copy-comparison section+section h2{color:#17336b;font-size:63px;font-weight:500}
+.arch-copy-comparison strong{color:#245adb;font-weight:600}
+.arch-copy-rules{color:#526783;font-size:30px;gap:50px}
+.arch-copy-rules.arch-current{color:#245adb}
+
+/* Animation follows data: a single directional draw, no ornamental looping. */
+.reddit-orchestrator{position:absolute;left:0;top:0;width:1708px;min-height:139px;background:#e5edfd;border-left:6px solid #245adb;padding:26px 32px;display:grid;grid-template-columns:490px 1fr;gap:40px;align-items:center;border-radius:0 14px 14px 0}
+.reddit-orchestrator h2{font-size:45px;line-height:1.3;color:#1c438e;font-weight:600}
+.reddit-orchestrator p{font-size:29px;line-height:1.55;color:#526783}
+.reddit-orchestrator strong{font-size:33px;line-height:1.5;color:#263e64;font-weight:500;display:block;margin-bottom:9px}
+.reddit-tech-map .arch-node{padding:30px 26px;background:#fff;border:1px solid #dce5f1}
+.reddit-tech-map .arch-node h2,.reddit-tech-map .arch-node.core h2{font-size:37px!important;letter-spacing:-.035em}
+.reddit-tech-map .arch-node .arch-detail{font-size:30px!important;line-height:1.8;margin-top:26px}
+.reddit-tech-map .arch-node .arch-kicker{font-size:29px;margin-bottom:24px}
+.reddit-tech-map .arch-node.core{background:#245adb;border-color:#245adb}
+.reddit-tech-map .arch-node.arch-current{box-shadow:0 0 0 4px #376fea29,0 20px 40px #285caa15;transform:translateY(-5px)}
+.reddit-track-rail{position:absolute;left:0;top:554px;width:1708px;display:grid;grid-template-columns:repeat(5,1fr);gap:20px;padding-top:28px;border-top:1px solid #c8d6ea}
+.reddit-track-rail>div{display:flex;gap:20px;align-items:center}
+.reddit-track-rail b{font:600 34px Manrope,sans-serif;color:#245adb}
+.reddit-track-rail span{font-size:29px;color:#53637b}
+.reddit-track-rail.arch-current{border-color:#245adb}
+.reddit-intake{position:absolute;top:219px;left:0;right:0;display:grid;grid-template-columns:746px 1fr;gap:88px}
+.reddit-intake figure{margin:0;padding-top:15px}
+.reddit-intake figure img{display:block;width:746px;height:420px;object-fit:cover;border-radius:14px;box-shadow:0 20px 46px #14294a1a}
+.reddit-intake figcaption{font-size:30px;line-height:1.75;color:#53637b;margin-top:30px}
+.reddit-tool-list section{display:grid;grid-template-columns:62px 1fr;gap:26px;padding:24px 12px 29px;border-bottom:1px solid #c8d6ea;transition:background 300ms}
+.reddit-tool-list section:first-child{padding-top:6px}
+.reddit-tool-list section>span{font:500 28px/1.7 Manrope,sans-serif;color:#53729f}
+.reddit-tool-list h2{font-size:38px;line-height:1.4;font-weight:600;color:#203f76}
+.reddit-tool-list p{font-size:33px;line-height:1.7;margin-top:8px;color:#273a57}
+.reddit-tool-list small{display:block;font-size:29px;line-height:1.5;color:#53637b;margin-top:6px}
+.reddit-tool-list section.arch-current{background:#e9f0ff;border-color:#245adb}
+.reddit-pronunciation{display:grid;grid-template-columns:1fr 70px 1fr 70px 1fr;align-items:center;gap:24px;position:absolute;top:225px;left:0;right:0}
+.reddit-pronunciation section{padding:28px 24px 32px;border-top:3px solid #b7c9e5;background:#eef3fb;border-radius:0 0 12px 12px;transition:background 350ms,border-color 350ms}
+.reddit-pronunciation p{font-size:29px;color:#536784;line-height:1.5}
+.reddit-pronunciation h2{font:600 64px/1.5 Manrope,sans-serif;letter-spacing:-.035em;color:#245adb;margin:8px 0 14px}
+.reddit-pronunciation .asr-error{color:#53637b;text-decoration:line-through;text-decoration-color:#9daec6;text-decoration-thickness:2px}
+.reddit-pronunciation span{font-size:29px;line-height:1.5;color:#53637b}
+.reddit-pronunciation i{font:400 48px Manrope,sans-serif;color:#829ac1;font-style:normal;text-align:center}
+.reddit-pronunciation section.arch-current{background:#dfeaff;border-color:#245adb}
+.reddit-sync-detail{position:absolute;top:540px;left:0;right:0;display:grid;grid-template-columns:660px 1fr;gap:72px}
+.reddit-sync-detail section{border-top:1px solid #c8d6ea;padding-top:24px}
+.reddit-sync-detail section>p{font-size:29px;color:#526783;margin:0 0 8px;line-height:1.3}
+.reddit-sync-detail h2{font-size:34px;font-weight:600;line-height:1.5;color:#243f6d;white-space:nowrap}
+.reddit-sync-detail section>div{font-size:30px;line-height:1.6;color:#53637b;margin-top:14px}
+.reddit-sync-detail section.arch-current{border-color:#245adb}
+.reddit-sync-note{position:absolute;bottom:0;left:0;right:0;font-size:32px;color:#245adb;padding:19px 28px;background:#e5edfd;border-radius:9px;line-height:1.5}
+.reddit-skills-heading>p{font-size:29px;color:var(--muted);margin-bottom:20px}
+.reddit-skills-heading h1{font-size:76px!important;line-height:1.3}
+.reddit-skill-rows{position:absolute;top:193px;left:0;right:0}
+.reddit-skill-rows section{display:grid;grid-template-columns:146px 1fr;gap:36px;align-items:center;min-height:139px;border-bottom:1px solid #3a4960;padding:16px 22px;transition:background 350ms,border-color 350ms}
+.reddit-skill-rows section>span{font-size:33px;line-height:1.5;color:#a9c4ff}
+.reddit-skill-rows h2{font:500 36px/1.4 Manrope,'Noto Sans SC',sans-serif;color:#eef4ff}
+.reddit-skill-rows p{font-size:30px;line-height:1.5;color:#b0bed2;margin-top:11px}
+.reddit-skill-rows section.arch-current{background:#1b2c49;border-color:#85adf6}
+.reddit-local-repair{position:absolute;bottom:0;left:0;right:0;display:flex;gap:42px;align-items:center;padding:22px;background:#1b2c49;border-radius:10px;font-size:30px;line-height:1.6;color:#becce1}
+.reddit-local-repair b{font-weight:500;color:#a9c4ff;white-space:nowrap}
+.reddit-local-repair.arch-current{box-shadow:inset 0 0 0 1px #85adf6}
+.motion-paused .reddit-tool-list section,.motion-paused .reddit-pronunciation section,.motion-paused .reddit-skill-rows section{transition:none}
+.arch-wire.arch-current .arch-wire-run{animation:keynote-route 1500ms cubic-bezier(.3,.05,.25,1) both}
+@keyframes keynote-route{from{stroke-dashoffset:1;opacity:.4}to{stroke-dashoffset:0;opacity:1}}
+.architecture-slide .arch-picture{animation:keynote-film-in 650ms cubic-bezier(.16,1,.3,1) both}
+@keyframes keynote-film-in{from{opacity:.55;translate:0 18px}to{opacity:1;translate:0 0}}
+.motion-paused .arch-picture,.motion-paused .arch-node{animation:none!important;transition:none!important}
+@media(prefers-reduced-motion:reduce){.arch-wire-run,.arch-picture{animation:none!important}.arch-picture,.arch-node{transition:none!important}}
+
+/* Traffic farm: parallel content lines plus a visible learning loop. */
+.farm-map{position:absolute;top:263px;left:0;width:1708px;height:565px}
+.farm-map section{position:absolute;z-index:1}
+.farm-map section>span{display:block;color:var(--muted);font-size:29px;line-height:1.4;margin-bottom:20px}
+.farm-map section>h2{font-size:44px;line-height:1.5;font-weight:600}
+.farm-map em{font-family:Manrope,sans-serif;font-style:normal;color:var(--accent);font-size:57px}
+.farm-map p{font-size:31px;line-height:1.65;color:var(--muted);margin-top:18px}
+.farm-input{left:0;top:171px;width:250px}
+.farm-production{left:372px;top:12px;width:570px}
+.farm-production>h2{font-size:32px!important;font-weight:500!important;color:var(--muted);margin-bottom:24px}
+.farm-production>div{display:flex;align-items:center;justify-content:space-between;height:100px;padding:0 30px;margin-bottom:25px;background:#1a2638;border:1px solid #344560;border-radius:12px;transition:background 400ms,border-color 400ms}
+.farm-production strong{font-size:38px;font-weight:500}.farm-production div>span{font:400 30px Manrope,sans-serif;color:#b7c8e6}
+.farm-publish{left:1060px;top:156px;width:370px}
+.farm-platforms>span{display:block;padding-left:3em;text-indent:-3em}
+.farm-harvest{left:1448px;top:156px;width:260px}
+.farm-harvest h2{color:var(--accent)}
+.farm-map .farm-feedback{position:absolute;left:840px;top:474px;background:var(--slide-bg);padding:0 22px;margin:0;font-size:29px;z-index:2;transition:color 350ms}
+.farm-wires{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.farm-wires path{fill:none;stroke:#6881a7;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.farm-wires g>path{marker-end:url(#farm-arrow)}
+.farm-wires .farm-return path{stroke-dasharray:7 9}
+.farm-map .arch-current>h2,.farm-feedback.arch-current{color:#b1ccff}
+.farm-production.arch-current>div{background:#233d68;border-color:#7ca6ef}
+.farm-wires g.arch-current>path{stroke:#a8c8ff;stroke-width:3;stroke-dasharray:14 9;animation:farm-flow 2.6s linear 1}
+@keyframes farm-flow{from{stroke-dashoffset:92}to{stroke-dashoffset:0}}
+.motion-paused .farm-wires g.arch-current>path{animation:none!important;stroke-dasharray:none}
+.motion-paused .farm-production>div,.motion-paused .farm-feedback{transition:none!important}
+@media(prefers-reduced-motion:reduce){.farm-wires g.arch-current>path{animation:none!important;stroke-dasharray:none}.farm-production>div,.farm-feedback{transition:none!important}}
+
+/* Whole-deck pass: one type scale, quieter frames, evidence-led compositions. */
+:root{--paper:#f7f9fc;--paper-ink:#17243b;--paper-muted:#53637b;--paper-line:#ccdaed;--cobalt:#245adb;--paper-blue:#e9f0ff;--paper-teal:#e5f1f3;--paper-teal-ink:#166378;--dark-elevated:#152030;--radius-media:12px;--text-body:34px;--text-caption:29px}
+.kevin-slide:not(.architecture-slide):not(.arch-copy-slide) h1{font-size:80px;line-height:1.25}
+.kevin-slide .eyebrow,.kevin-demo .eyebrow{font-size:29px;line-height:1.4;margin-bottom:24px}
+.kevin-slide .lede{font-size:var(--text-body);line-height:1.65}
+.kevin-slide .bottom-takeaway{font-size:32px;line-height:1.55;bottom:0;color:var(--muted)}
+.k-row{border-color:var(--line)}
+.k-row p,.k-two-col .k-row p,.k-reuse p{font-size:32px}
+.k-row h2,.k-two-col .k-row h2{font-size:40px}
+.k-text-link:hover,.k-close-links a:hover{color:#d0dfff}
+.k-feature-image img,.k-overseas-proof img,.p-storyboard img{border-radius:var(--radius-media)}
+.k-feature-image img{border:0}
+.k-feature-copy{width:1030px}
+.kevin-slide.k-feature .k-feature-copy h1{font-size:111px}
+.k-feature-copy .k-text-beats{width:850px;margin-top:56px;gap:32px}
+.k-overseas-proof{top:194px}
+.k-overseas-copy{top:248px}
+.k-overseas-copy p{font-size:31px;line-height:1.7}
+.k-results{margin-top:45px;gap:115px;grid-template-columns:1fr .92fr}
+.k-results>div>strong{font-size:180px;font-variant-numeric:tabular-nums}
+.k-results .k-runtime>strong{font-size:104px}
+.k-inline-metrics{margin-top:24px;font-size:30px}
+.k-runtime p{font-size:31px}
+.k-china-proof{bottom:0}
+.k-china-proof img{box-shadow:none}
+.k-process{margin-top:115px}
+.k-process .flow-node{padding-top:34px}
+.k-process .flow-node h2{font-size:49px;margin:31px 0 20px}
+.k-process .flow-node p{font-size:33px}
+.k-process .node-number{font-size:35px}
+.p-stair{margin-top:54px;gap:25px}
+.p-stair>div{padding-bottom:26px}
+.p-stair h2{font-size:47px}.p-stair p{font-size:32px}
+.p-stair b{font-size:30px}
+.kevin-demo .demo-copy{padding-top:64px}
+.kevin-demo .demo-copy .lede{font-size:34px}
+.kevin-demo .demo-cues{gap:33px;margin-top:54px}
+.kevin-demo .demo-cues p{font-size:33px}
+.kevin-demo .demo-screen{right:25px;border-radius:var(--radius-media)}
+.kevin-demo .demo-screen video{border-radius:var(--radius-media)}
+.reddit-demo .demo-copy{width:850px;padding-top:150px}
+.reddit-demo .demo-copy h1{font-size:104px;line-height:1.26}
+.reddit-demo .demo-screen{right:80px;top:-46px;width:554px;height:984px}
+.reddit-demo-meta{margin-top:64px;color:var(--muted);font-size:29px;line-height:1.5}
+.reddit-demo-actions{display:flex;gap:24px;margin-top:24px}
+.reddit-demo-actions .stage-button{margin-top:0;font-size:29px}
+.reddit-demo-actions .secondary{background:transparent;color:var(--ink);border:1px solid #71829d}
+.reddit-demo-actions .secondary:hover{background:#22304a}
+
+/* Paper surfaces are reserved for explanation, comparison and handoff. */
+.keynote-paper{background:var(--paper);--ink:var(--paper-ink);--muted:var(--paper-muted);--accent:var(--cobalt);--line:var(--paper-line);color:var(--ink)}
+.keynote-paper .eyebrow{color:#4269b3}
+.keynote-paper .k-two-col{margin-top:86px;gap:120px}
+.keynote-paper .k-two-col>div>h2{font-size:47px}
+.keynote-paper .k-two-col .k-text-beats{gap:40px;margin-top:40px}
+.keynote-paper .k-row{padding-top:24px}
+.keynote-paper .k-row p{line-height:1.6;margin-top:15px}
+.keynote-paper .bottom-takeaway{color:var(--paper-muted)}
+.keynote-paper .k-text-link:hover{color:#153b93}
+.keynote-paper .k-status>div{border-color:var(--line);padding-top:33px}
+.keynote-paper .k-status>div:last-child{border-top-color:var(--cobalt)}
+.keynote-paper .k-status h2{font-size:47px!important;margin-top:26px}
+.keynote-paper .k-status p{font-size:37px;line-height:1.95;margin-top:34px}
+
+/* The product enters through a visible case, not a paragraph about a case. */
+.k-case-frame{position:absolute;left:0;top:234px;width:1030px}
+.k-case-frame img{display:block;width:1030px;height:579px;object-fit:contain;border-radius:var(--radius-media)}
+.k-case-frame figcaption{font-size:var(--text-caption);color:var(--muted);margin-top:18px}
+.k-case-story{position:absolute;left:1122px;right:0;top:234px;display:flex;flex-direction:column;gap:35px}
+.k-case-story>div{padding-top:20px;border-top:1px solid var(--line)}
+.k-case-story span{display:block;font-size:30px;color:var(--muted);margin-bottom:18px}
+.k-case-story h2{font-size:42px;line-height:1.45;font-weight:500;text-wrap:initial}
+.k-case-story em{font-style:normal;color:var(--accent)}
+[data-slide-id="reddit-tripo"] .bottom-takeaway{font-size:29px;bottom:-44px}
+
+/* Feedback stays conversational, with the editable rule opposite the comment. */
+.p-feedback-note{top:282px;width:675px}
+.p-feedback-note p{font-size:68px;line-height:1.55}
+.p-feedback-note span{font-size:30px;margin-top:30px}
+.p-feedback-work{top:242px;width:810px;gap:43px}
+.p-feedback-work h2{font-size:41px}
+.p-feedback-work p{font-size:34px;line-height:1.72}
+
+/* Actual frames make the code-animation capability tangible. */
+.k-explain-copy{position:absolute;left:0;top:245px;width:890px;display:flex;flex-direction:column;gap:54px}
+.k-explain-copy span{font-size:30px;color:var(--muted);display:block;margin-bottom:22px}
+.k-explain-copy h2{font-size:49px;font-weight:500;line-height:1.5;text-wrap:initial}
+.k-explain-copy>div+div{padding-top:30px;border-top:1px solid var(--line)}
+.k-explain-copy>div+div h2{color:var(--cobalt)}
+.k-explain-copy p{font-size:34px;line-height:1.75;margin-top:20px;color:var(--muted)}
+.k-explain-frames{position:absolute;right:0;top:220px;display:flex;gap:44px}
+.k-explain-frames img{display:block;height:548px;width:308px;object-fit:contain;border-radius:var(--radius-media);box-shadow:0 18px 30px #15284718}
+.k-explain-frames figcaption{font-size:28px;color:var(--muted);margin-top:21px}
+
+/* Shared time is the visual organizing principle, not three unrelated colors. */
+.k-sync-ruler{display:grid;grid-template-columns:repeat(3,1fr);margin:100px 0 0 300px;border-bottom:1px solid var(--line);padding-bottom:26px;font-size:30px;color:var(--muted)}
+.k-sync-ruler span{padding-left:29px;border-left:1px solid var(--line)}
+.k-sync-tracks{margin-top:26px;gap:30px;padding:22px 0}
+.k-sync-tracks>div{grid-template-columns:280px repeat(3,1fr);gap:20px}
+.k-sync-tracks b{font-size:32px;color:var(--paper-muted)}
+.k-sync-tracks span{background:var(--paper-blue);border:1px solid #d0ddf3;border-radius:9px;color:#244e9c;font-size:34px;height:108px}
+.k-sync-tracks>div:nth-child(2) span{background:#e9eef5;border-color:#d3dce9;color:#334e73}
+.k-sync-tracks>div:nth-child(3) span{background:var(--paper-teal);border-color:#c7dde2;color:var(--paper-teal-ink)}
+.k-sync-head{top:-17px;bottom:-20px;left:300px;width:3px;background:var(--cobalt);box-shadow:0 0 0 5px #245adb0a}
+.k-sync-head::before{content:'';position:absolute;top:-3px;left:-8px;width:19px;height:19px;border-radius:50%;background:var(--cobalt)}
+.k-sync-tracks>div.build-focus span{border-color:var(--cobalt);box-shadow:0 4px 15px #245adb0a}
+[data-slide-id="daily-capture"][data-step="0"] .k-sync-head,[data-slide-id="daily-capture"][data-step="1"] .k-sync-head{opacity:0}
+.kevin-slide .p-game-question h1{font-size:128px!important}
+.p-game-question .lede{font-size:35px}
+.p-game-answer{font-size:45px}
+
+/* Story frames share a baseline and have room to breathe above the conclusion. */
+.p-storyboard{gap:55px;margin-top:52px}
+.p-storyboard img{height:475px;border:1px solid #46526a}
+.p-storyboard figcaption{margin-top:22px}
+.p-storyboard figcaption span{font-size:29px}
+.p-storyboard h2{font-size:36px;margin-top:16px;line-height:1.4}
+[data-slide-id="holly-story"] .bottom-takeaway{bottom:-3px;font-size:32px}
+
+/* Reuse is an editorial index, followed by a distinct target page. */
+.k-resource-list{margin-top:75px;border-top:1px solid var(--line)}
+.k-resource-list>div{display:grid;grid-template-columns:78px 425px 426px 1fr;align-items:center;gap:32px;min-height:157px;border-bottom:1px solid var(--line);padding:28px 0}
+.k-resource-list>div>span{font:400 35px Manrope;color:var(--accent)}
+.k-resource-list h2{font-size:39px;font-weight:500}
+.k-resource-list p{font-size:31px;color:var(--muted);line-height:1.65}
+.k-resource-list strong{font-size:32px;line-height:1.6;font-weight:400;color:var(--accent)}
+.k-resource-list>div.build-focus{border-bottom-color:var(--cobalt)}
+.k-text-link{bottom:29px;font-size:32px}
+.k-next-questions{position:absolute;left:0;top:260px;width:944px;display:flex;flex-direction:column;gap:52px}
+.k-next-questions>div{border-top:1px solid var(--line);padding-top:29px}
+.k-next-questions span,.k-next-target>span{font-size:30px;color:var(--muted)}
+.k-next-questions h2{font-size:46px;font-weight:500;line-height:1.45;margin-top:27px}
+.k-next-questions p{font-size:33px;line-height:1.6;color:var(--muted);margin-top:22px}
+.k-next-target{position:absolute;right:0;top:260px;width:631px;border-left:1px solid var(--line);padding:0 0 0 55px}
+.k-next-target>strong{display:block;font:600 157px/1.45 Manrope;letter-spacing:-.065em;color:var(--accent);margin:12px 0 27px}
+.k-next-target>strong>span{font-size:91px;margin-left:6px;vertical-align:15px}
+.k-next-target h2{font-size:42px;font-weight:500}
+.k-next-target p{font-size:33px;line-height:1.8;color:var(--muted);margin-top:26px}
+.kevin-closing{background:radial-gradient(ellipse at 95% 80%,#243b5b66,transparent 55%),var(--slide-bg)}
+.k-close-copy{top:75px;width:1100px}
+.kevin-slide.kevin-closing .k-close-copy h1{font-size:116px;line-height:1.3;letter-spacing:-.04em}
+.k-close-copy .lede{font-size:36px;margin-top:39px}
+.k-close-note{font-size:35px;line-height:1.7;margin-top:45px;color:var(--muted)}
+.k-close-links{left:auto;right:0;top:354px;bottom:auto;width:510px;display:flex;flex-direction:column;gap:0;font-size:34px}
+.k-close-links a{display:block;padding:30px 0;border-top:1px solid var(--line);text-decoration:none;line-height:1.55}
+.k-close-links a::after{content:'↗';float:right;color:var(--muted)}
+.k-close-links a[download]::after{content:'↓'}
+.k-close-links a:hover{border-top-color:var(--accent)}
+button:focus-visible,a:focus-visible{outline-width:3px;outline-offset:6px}
+#overviewGrid button.current{background:#243753}
+
+/* Operator-facing architecture: workflow above, concrete problems below. */
+.operator-summary-slide .arch-heading h1{font-size:66px!important;line-height:1.25}
+.operator-summary-slide .operator-map{top:183px;height:450px}
+.operator-summary-slide .arch-wires{height:665px;max-height:none;overflow:visible;pointer-events:none}
+.operator-summary-slide .reddit-orchestrator{min-height:108px;padding:17px 26px;grid-template-columns:405px 1fr;gap:28px}
+.operator-summary-slide .reddit-orchestrator h2{font-size:40px;line-height:1.35}
+.operator-summary-slide .reddit-orchestrator p{font-size:28px;line-height:1.45}
+.operator-summary-slide .reddit-orchestrator strong{font-size:31px;line-height:1.4;margin-bottom:6px}
+.operator-summary-slide .arch-node{padding:22px 24px}
+.operator-summary-slide .arch-node.bare{padding:0}
+.operator-summary-slide .arch-node h2{font-size:40px!important;line-height:1.3;white-space:normal;text-wrap:wrap}
+.operator-summary-slide .arch-node .arch-kicker{font-size:27px;margin-bottom:12px;line-height:1.35}
+.operator-summary-slide .arch-node .arch-detail{font-size:29px!important;line-height:1.65;margin-top:13px}
+.operator-summary-slide .operator-tool{font-size:27px;opacity:.85}
+.operator-summary-slide .arch-node.core .operator-tool{color:#e7efff}
+.operator-summary-slide .arch-daily #daily-config{padding:20px 18px}
+.operator-summary-slide .arch-daily #daily-compose{padding:28px 24px}
+.operator-summary-slide .arch-daily #daily-encode h2{font-size:36px!important}
+.operator-summary-slide .arch-daily #daily-encode .arch-detail{font-size:27px!important;white-space:nowrap}
+.operator-summary-slide .arch-daily #daily-render h2{font-size:40px!important}
+.operator-summary-slide .arch-holly #holly-plan{padding:27px 22px}
+.operator-summary-slide .arch-holly #holly-plan .arch-detail{font-size:28px!important}
+.operator-summary-slide .arch-holly #holly-capture h2,.operator-summary-slide .arch-holly #holly-compose h2{font-size:40px!important}
+.operator-summary-slide .arch-line-label{font-size:27px;line-height:1.4}
+.operator-problems{position:absolute;left:0;right:0;top:642px;border-top:1px solid #b6c7e0;padding-top:18px}
+.operator-problems>h2{font-size:29px;font-weight:500;line-height:1.35;color:#4e6489;margin-bottom:16px}
+.operator-problems>div{display:grid;grid-template-columns:repeat(3,1fr);gap:56px}
+.operator-problems article{padding-left:0}
+.operator-problems h3{font-size:33px;line-height:1.4;font-weight:600;color:#224e9b;margin:0 0 11px}
+.operator-problems p{font-size:30px;line-height:1.6;color:#354b6e;margin:0}
+.arch-record #record-clock h2{font-size:38px!important}
+.reddit-skills-heading h1{font-size:70px!important}
+.k-case-story h2{max-width:950px}
+#overviewGrid button:hover{background:#22334c}
+#overviewGrid button{transition:background 180ms,border-color 180ms}
+#notesTitle,#presenterTitle{font-weight:500}
+@media(max-width:800px){.toolbar button,.controls button{min-height:44px}.toolbar{height:62px}#stage{top:62px}.toolbar button{padding:8px 6px}}
+
+/* Kevin's business narrative stays visible on stage, not only in the notes. */
+.k-kevin-intro{margin-top:35px;display:flex;flex-direction:column;gap:11px}
+.k-kevin-intro p{font-size:31px;line-height:1.65;color:var(--muted)}
+.k-kevin-intro span{display:inline-block;min-width:85px;margin-right:20px;color:var(--accent)}
+.k-two-tests>div{transition:border-color 300ms}
+.k-two-tests>div.arch-current{border-top-color:var(--cobalt)}
+.k-two-tests>div.arch-current h2{color:var(--cobalt)}
+.k-two-tests p{font-size:35px!important;line-height:1.95}
+.k-holly-brief{position:absolute;left:0;top:18px;width:1110px}
+.kevin-slide .k-holly-brief h1{font-size:98px!important;line-height:1.25}
+.k-holly-brief .lede{font-size:37px;line-height:1.7;margin-top:33px}
+.k-holly-reason{margin-top:48px;padding-top:29px;border-top:1px solid var(--line)}
+.k-holly-reason h2{font-size:38px;font-weight:500;line-height:1.5}
+.k-holly-reason p{font-size:34px;line-height:1.75;color:var(--muted);margin-top:20px}
+.k-holly-reason.arch-current h2{color:var(--accent)}
+.k-holly-proof{position:absolute;right:0;top:20px;width:420px;margin:0}
+.k-holly-proof img{display:block;width:420px;height:747px;object-fit:contain;border-radius:12px;border:1px solid #405475}
+.k-holly-proof figcaption{font-size:29px;color:var(--muted);margin-top:18px}
+.k-holly-route{position:absolute;left:0;right:0;bottom:-12px;display:flex;align-items:center;justify-content:space-between;gap:36px;font-size:34px;line-height:1.5;color:var(--muted)}
+.k-holly-route strong{font-weight:500;color:var(--ink)}
+.k-holly-route i{height:1px;flex:1;background:var(--line);position:relative}
+.k-holly-route i::after{content:'';position:absolute;right:0;top:-4px;width:8px;height:8px;border-right:1px solid var(--muted);border-top:1px solid var(--muted);transform:rotate(45deg)}
+.k-holly-route.arch-current strong,.k-holly-route.arch-current span{color:var(--accent)}
+.motion-paused .k-two-tests>div{transition:none!important}
+@media(prefers-reduced-motion:reduce){.k-two-tests>div{transition:none!important}}
