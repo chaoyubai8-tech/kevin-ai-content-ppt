@@ -95,7 +95,30 @@ function reveal(animateNew=false){$('slide').dataset.step=step;$('slide').style.
  $('slide').querySelectorAll('[data-arch-caption]').forEach(el=>{const current=Number(el.dataset.archCaption)===step;el.classList.toggle('is-current',current);el.setAttribute('aria-hidden',String(!current));});
  $('buildCount').textContent=maxStep?`${step} / ${maxStep}`:'';$('prevBtn').disabled=index===0&&step===0;$('nextBtn').disabled=index===deck.length-1&&step===maxStep;
 }
-function notesMarkup(s){return `<p class="cue">建议 ${fmt(s.seconds)} · ${esc(s.cue||'')}</p>${s.notes.map(p=>`<p>${esc(p)}</p>`).join('')}${s.footnote?`<p>补充说明：${esc(s.footnote)}</p>`:''}<p class="note-source">资料：${esc(s.source)}</p>`}
+// Keep operation cues and spoken paragraphs in the same order as the manuscript.
+// These lighter cue colours preserve its blue/red/grey/green legend on dark panels.
+const cueColours={click:'#9ABEFF',turn:'#FFAAA3',wait:'#BAC2CF',end:'#9DD7AC'};
+function cueKind(instruction,action){
+ if(/【结束/.test(instruction))return 'end';
+ if(/【翻页/.test(instruction))return 'turn';
+ if(action==='play')return 'click';
+ if(action==='resume'||/^\s*【(?:进入|等待|视频播放结束|播放结束|保持|继续口播)/.test(instruction))return 'wait';
+ return /点击|播放视频/.test(instruction)?'click':'wait';
+}
+function cueMarkup(instruction,action){
+ if(typeof instruction!=='string'||!instruction.trim())return '';
+ const kind=cueKind(instruction,action);
+ return `<p class="speaker-cue speaker-cue-${kind}" style="color:${cueColours[kind]};font-weight:600">${esc(instruction)}</p>`;
+}
+function notesMarkup(s){
+ const events=Array.isArray(s.speakerEvents)?s.speakerEvents:null;
+ const spoken=events?events.map(event=>{
+  const paragraphs=Array.isArray(event.say)?event.say:typeof event.say==='string'?[event.say]:[];
+  return `<section class="speaker-event"${Number.isFinite(event.step)?` data-speaker-step="${event.step}"`:''}>${cueMarkup(event.instruction,event.action)}${paragraphs.filter(p=>typeof p==='string'&&p.trim()).map(p=>`<p>${esc(p)}</p>`).join('')}</section>`;
+ }).join('')+cueMarkup(s.speakerExit):
+  (Array.isArray(s.notes)?s.notes:[]).map(p=>`<p>${esc(p)}</p>`).join('');
+ return `<p class="cue">建议 ${fmt(s.seconds)}${s.cue?` · ${esc(s.cue)}`:''}</p>${spoken}${s.footnote?`<p>补充说明：${esc(s.footnote)}</p>`:''}${s.source?`<p class="note-source">资料：${esc(s.source)}</p>`:''}`;
+}
 function render(broadcast=true){const s=deck[index];$('slide').querySelectorAll('video').forEach(v=>{retiredVideos.add(v);v.pause()});mediaState=null;stopAnimations();exerciseEnd=0;
  $('slide').className=`slide active ${s.type||''}`;
  $('slide').dataset.slideId=s.id;
@@ -154,5 +177,8 @@ try{channel=new BroadcastChannel('content-cinema-c');channel.onmessage=({data})=
 };}catch{}
 window.addEventListener('pagehide',()=>post({type:'leave'}));
 window.addEventListener('pageshow',e=>{if(e.persisted)post({type:'request'})});
+const totalSeconds=deck.reduce((sum,s)=>sum+(Number.isFinite(Number(s.seconds))?Math.max(0,Number(s.seconds)):0),0);
+const totalTimeLabel=document.querySelector('footer .timer .muted');
+if(totalTimeLabel)totalTimeLabel.textContent=`/ ${fmt(totalSeconds)}`;
 togglePresenter(presenter,false);setMotion(motion,false);render(false);post({type:'request'});
 })();

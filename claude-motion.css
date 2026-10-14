@@ -1,0 +1,96 @@
+/* Claude motion workflow — editable diagrams, readable at presentation scale. */
+.claude-motion{background:#f6f8fc;color:#17243b;--ink:#17243b;--muted:#52647e;--accent:#245adb;--line:#ccd7e8}
+.claude-motion.cm-dark{background:radial-gradient(ellipse at 78% 40%,#20335155,transparent 65%),#10151d;color:#f4f6fa;--ink:#f4f6fa;--muted:#acbbce;--accent:#99bbff}
+.claude-motion h1{font-size:70px;line-height:1.25;letter-spacing:-.035em;font-weight:600}
+.cm-heading>p,.cm-kicker{font-size:28px;line-height:1.5;color:var(--accent);margin-bottom:18px;font-weight:500}
+.cm-heading h1{max-width:none}
+.cm-intro-copy{width:760px;padding-top:105px}
+.cm-intro-copy h1{font-size:113px;line-height:1.35;letter-spacing:-.035em}
+.cm-lede{font-size:37px;line-height:1.7;color:var(--muted);margin-top:38px}
+.cm-intro-note{font-size:27px;line-height:1.5;margin-top:62px;color:var(--muted)}
+.cm-route{position:absolute;left:875px;right:0;top:15px;bottom:0}
+.cm-route-caption{font-size:28px;color:var(--muted);margin-bottom:26px}
+.cm-route-row{display:grid;grid-template-columns:90px 1fr;gap:15px;align-items:center;min-height:125px;border-top:1px solid #3a4960}
+.cm-route-row>span{font:400 38px/1.4 Manrope,sans-serif;color:var(--accent)}
+.cm-route-row h2{font-size:36px;line-height:1.4;font-weight:500}
+.cm-route-row p{font-size:27px;line-height:1.5;color:var(--muted);margin-top:7px}
+.cm-question{font-size:34px;line-height:1.5;color:#52647e;margin-top:32px}
+.cm-inputs{display:grid;grid-template-columns:repeat(3,1fr);gap:38px;position:absolute;top:275px;left:0;right:0}
+.cm-inputs section{border-top:3px solid #245adb;padding:27px 25px 26px;background:#fff;border-radius:0 0 12px 12px;min-height:530px;position:relative}
+.cm-num{font:400 34px/1.4 Manrope;color:#245adb}
+.cm-inputs h2{font-size:42px;margin:16px 0 10px;line-height:1.35}
+.cm-tool{font-size:28px;color:#52647e}
+.cm-inputs ul{list-style:none;padding:0;margin:30px 0 32px;display:grid;gap:17px;font-size:31px;line-height:1.4;color:#52647e}
+.cm-inputs li::before{content:'—';margin-right:13px;color:#7f98bf}
+.cm-inputs strong{display:block;font-size:30px;font-weight:500;color:#245adb;border-top:1px solid #d4ddeb;padding-top:22px}
+.cm-architecture{position:absolute;top:175px;left:0;right:0;height:415px}
+.cm-wires{position:absolute;inset:0;width:100%;height:100%;overflow:visible;fill:none;stroke:#8ea3c3;stroke-width:3;pointer-events:none}
+.cm-wires>path{marker-end:url(#cm-arrow)}
+.cm-wires .cm-optional-wire{stroke-dasharray:7 7}
+.cm-node{position:absolute;border:1px solid #c8d6e9;background:#fff;border-radius:15px;padding:26px 27px;transition:background .35s,box-shadow .35s,transform .35s}
+.cm-node>p{font-size:27px;line-height:1.4;color:#52647e;margin-bottom:14px}
+.cm-node h2{font-size:37px;line-height:1.3;letter-spacing:-.025em;font-weight:600}
+.cm-node span{display:block;font-size:28px;line-height:1.6;color:#52647e;margin-top:17px}
+.cm-material{left:0;top:165px;width:280px;height:270px}
+.cm-material h2{font-size:36px}
+.cm-material span{font-size:27px}
+.cm-claude{left:340px;top:165px;width:390px;height:270px;background:#245adb;border-color:#245adb;color:#fff}
+.cm-claude h2{font-size:48px}
+.cm-claude span{font-size:27px;line-height:1.5;margin-top:12px}
+.cm-claude>p,.cm-claude span{color:#e1eaff}
+.cm-components{left:340px;top:0;width:390px;height:103px;padding:16px 24px;background:#edf2fc;border-style:dashed}
+.cm-components h2{font-size:31px}
+.cm-components span{font-size:23px;margin-top:6px;line-height:1.4;white-space:nowrap}
+.cm-render{left:815px;top:165px;width:540px;height:270px}
+.cm-render-options{display:grid;grid-template-columns:1fr 44px 1fr;align-items:center;gap:8px}
+.cm-render-options h2{font-size:31px;letter-spacing:-.045em}
+.cm-render-options span{font-size:26px;margin-top:15px;line-height:1.6}
+.cm-render-options>b{text-align:center;color:#6c80a1;font-size:25px;font-weight:400}
+.cm-output{left:1420px;top:165px;width:288px;height:270px;background:#e9f0fe}
+.cm-output h2{font-size:52px;color:#245adb}
+.cm-output span{font-size:26px}
+.cm-node.arch-current{box-shadow:0 0 0 4px #245adb2d,0 12px 32px #193a7212;transform:translateY(-4px)}
+.cm-claude.arch-current{background:#154cc8;box-shadow:0 0 0 6px #245adb2b,0 18px 40px #193a7225}
+.cm-problems{position:absolute;top:643px;left:0;right:0;border-top:1px solid #ccd7e8;padding-top:21px}
+.cm-problems>h2{font-size:30px;color:#52647e;font-weight:500;margin-bottom:17px}
+.cm-problems>div{display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
+.cm-problems article{padding:11px 16px;border-left:3px solid #bfcee6;transition:border-color .3s,background .3s}
+.cm-problems h3{font-size:32px;line-height:1.4;font-weight:600;color:#243f6d}
+.cm-problems article p{font-size:28px;line-height:1.6;margin-top:9px;color:#52647e}
+.cm-problems article.arch-current{border-color:#245adb;background:#e9f0fe}
+.cm-approval-route{display:flex;justify-content:space-between;align-items:center;background:#e7eefb;padding:24px 32px;border-radius:10px;margin-top:40px;font-size:33px;line-height:1.4;color:#245adb}
+.cm-approval-route strong{font-weight:500}.cm-approval-route i{font-style:normal;color:#728aaf}
+.cm-storyboards{display:grid;grid-template-columns:repeat(3,1fr);gap:35px;margin-top:38px}
+.cm-storyboards>div{padding:25px 26px;border:1px solid #cfdaeb;background:#fff;border-radius:12px}
+.cm-storyboards span{font-size:28px;color:#245adb}
+.cm-storyboards h2{font-size:33px;margin:22px 0 18px;line-height:1.4}
+.cm-storyboards p{font-size:27px;color:#52647e;line-height:1.6}
+.cm-still-check{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;margin-top:24px;border-top:1px solid #ccd7e8;padding:22px 20px}
+.cm-still-check p{font-size:28px;color:#52647e;margin-bottom:16px}
+.cm-still-check h2{font-size:40px;color:#243f6d}
+.cm-still-check ul{list-style:none;padding:0;display:grid;gap:12px;color:#52647e;font-size:29px;line-height:1.4}
+.cm-still-check li::before{content:'✓';color:#245adb;margin-right:20px}
+.cm-gate{position:absolute;bottom:0;left:0;right:0;display:flex;gap:45px;align-items:center;font-size:32px;line-height:1.5;padding:22px 28px;background:#245adb;border-radius:10px;color:#fff}
+.cm-gate span{color:#dce8ff;font-size:27px}
+.cm-page-14 h1{font-size:66px;line-height:1.3}
+.cm-director{display:grid;grid-template-columns:480px 80px 1fr;align-items:center;gap:30px;margin-top:42px}
+.cm-director span{font-size:28px;line-height:1.5;color:#52647e}
+.cm-vague{border-left:3px solid #b5c5dd;padding:12px 30px}
+.cm-vague h2{font-size:41px;margin:21px 0;color:#53647d;font-weight:500}
+.cm-vague p{font-size:29px;line-height:1.6;color:#52647e}
+.cm-director>i{font-style:normal;font-size:45px;color:#8297b8;text-align:center}
+.cm-precise>div{margin-top:22px;display:grid;gap:17px}
+.cm-precise p{font-size:34px;line-height:1.45;color:#243f6d}
+.cm-precise b{font-weight:500;color:#245adb}
+.cm-review{position:absolute;top:639px;left:0;right:0;display:flex;gap:40px;align-items:center;border-top:1px solid #ccd7e8;padding:27px 28px;font-size:31px;line-height:1.5}
+.cm-review>span{color:#52647e;width:235px}.cm-review strong{font-weight:500;color:#243f6d}
+.cm-save{position:absolute;bottom:0;left:0;right:0;padding:23px 28px;background:#e5edfd;border-radius:10px;font-size:29px;line-height:1.5}
+.cm-save>span{color:#245adb;display:block;margin-bottom:10px;font-weight:500}.cm-save p{color:#243f6d}
+.cm-cover-poster{height:100%;padding:28px 23px;background:#e7edf8;color:#142b52;overflow:hidden;pointer-events:none}
+.cm-cover-poster>span{font-size:10px;letter-spacing:1px}.cm-cover-poster>strong{display:block;font:700 49px/1.08 Manrope,sans-serif;letter-spacing:-3px;margin-top:29px}
+.cm-cover-poster>p{font-size:15px;white-space:nowrap;margin-top:25px}.cm-cover-poster>small{display:block;font-size:14px;margin-top:12px;color:#51698f}
+.cm-cover-art{height:220px;position:relative;margin-top:16px;perspective:600px}
+.cm-cover-art i{position:absolute;width:165px;height:120px;background:#245adb;border:1px solid #93b2f3;left:40px;top:40px;transform:rotate(-15deg) skewY(10deg);box-shadow:12px 18px 30px #173e8e23}
+.cm-cover-art i:nth-child(2){background:#608fee;top:65px;left:20px}.cm-cover-art i:nth-child(3){background:#b3ccff;top:90px;left:0}
+.motion-paused .claude-motion *{transition:none!important}
+@media(prefers-reduced-motion:reduce){.claude-motion *{transition:none!important}}
