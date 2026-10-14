@@ -421,29 +421,40 @@ window.DECK=[
     "id": "daily-demo",
     "act": 1,
     "section": "三条产线",
-    "type": "kevin-slide claude-motion cm-page-10 cm-dark",
+    "type": "kevin-slide claude-motion cm-page-10 cm-dark cm-video-intro",
     "title": "第二条用 Claude 制作动效视频",
-    "html": "<div class=\"cm-intro-copy\"><p class=\"cm-kicker\">第二部分 / 可借鉴的制作方法</p><h1 data-animate=\"title\">用 Claude<br>做<span class=\"accent\">动效视频</span></h1><p class=\"cm-lede\">人给方向，模型写场景<br>渲染工具把它变成视频</p><p class=\"cm-intro-note\">参考工作流 · 尚未作为本产线成果验证</p></div>\n<div class=\"cm-route\" aria-label=\"Claude 动效视频制作路线\"><p class=\"cm-route-caption\">从需求到成片，逐步确认</p><div class=\"cm-route-row\"><span>01</span><div><h2>参考片与品牌素材</h2><p>先让模型知道，什么是我们要的</p></div></div><div class=\"cm-route-row\"><span>02</span><div><h2>制作工具</h2><p>HyperFrames 或 Remotion</p></div></div><div class=\"cm-route-row\"><span>03</span><div><h2>三版分镜</h2><p>先选讲法，再确认方向</p></div></div><div class=\"cm-route-row\"><span>04</span><div><h2>逐镜静帧</h2><p>画面看顺了，再让它动</p></div></div><div class=\"cm-route-row\"><span>05</span><div><h2>动效与修改</h2><p>具体到镜头、元素和节奏</p></div></div><div class=\"cm-route-row\"><span>06</span><div><h2>MP4 + 源项目</h2><p>发布成片，留下可修改的工程</p></div></div></div>",
+    "html": "<div class=\"cm-sample-copy\"><p class=\"cm-kicker\">第二部分 / 先看之前的 Claude 样片</p><h1 data-animate=\"title\">用 Claude<br>做<span class=\"accent\">动效视频</span></h1><p class=\"cm-lede\">先看 3D Daily 的实际画面<br>再拆从参考到成片的制作方法</p><div class=\"cm-sample-route\"><p><span>先定方向</span>参考与品牌素材 → 制作工具 → 三版分镜</p><p><span>再做成片</span>逐镜静帧 → 动效与修改 → MP4</p></div><div class=\"cm-sample-actions\"><button class=\"stage-button\" data-play-video>播放 Claude 样片</button><button class=\"cm-fullscreen\" data-fullscreen-video>全屏看视频</button></div><p class=\"cm-sample-caption\">已有样片 · 3D Daily · 约 39 秒</p></div>\n<div class=\"cm-sample-screen\" data-animate=\"media\"><video controls playsinline preload=\"metadata\" poster=\"assets/3d-daily-poster.jpg\" aria-label=\"之前的 Claude 3D Daily 样片，约39秒\"><source src=\"assets/3d-daily-reference.mp4\" type=\"video/mp4\"></video></div>",
     "notes": [
-      "第一条讲的是，把找到的好素材剪成视频。第二部分，我想换一个更直接能借来用的方法：让 Claude 帮我们制作动效视频。比如产品介绍里，界面怎么进入画面，哪一个功能先被看到，标题什么时候出现，这些都可以用代码来组织。",
-      "最近看到一篇经验分享，很像我们做内容时会碰到的问题：别人说一条提示词就能出很好的视频，自己照着试，结果却很普通。它分享的关键，是在生成之前准备参考和真实素材，中间先选分镜、确认静帧，最后再逐镜修改。这里我分享的是这套方法，不把它说成我们已经验证过的制作成绩。",
+      "第二部分先看一下之前这条用 Claude 做的 3D Daily 视频。大家先留意画面怎么运动、重点怎么被突出，以及画面和解说怎么配合。先把它完整看一遍，再拆后面的制作方法。",
+      "刚才是之前的 3D Daily 样片。接下来我想分享一套可以借过来做产品动效的方法：给 Claude 参考和真实素材，先选分镜、确认静帧，再用代码制作、渲染和修改。这套参考方法不等于刚才那条样片已经使用了后面介绍的所有工具。",
       "对运营来说，这套方法有意思的地方是，我们不需要先把每一种动画都学会，但要把要求给具体。要给谁看，先看懂哪个功能，最后希望他做什么，这些得由我们确定。Claude 再把这些要求落实到镜头和代码里。",
       "下面我按制作顺序拆开。大家可以带着一个自己的需求来想：如果明天要介绍一个新功能，我需要准备什么，又应该在什么地方停下来确认，才不会到最后整条重做。"
     ],
-    "cue": "本页无分步动画。按下方操作提示演示，讲完后点击“继续”翻页。",
-    "source": "参考：用户提供的 Claude 动效工作流；WhatShips、HyperFrames、Remotion 与 21st.dev 官方资料。",
+    "cue": "先点击“播放 Claude 样片”，播完恢复口播；本页无分步动画，讲完再点“继续”翻页。",
+    "source": "用户此前提供的 3D Daily 样片；后续参考工作流来自用户分享及相关工具官方资料。",
     "footnote": "",
-    "seconds": 100,
+    "seconds": 140,
     "speakerEvents": [
       {
-        "instruction": "【进入本页，先不要点击】展示完整路线：参考片与品牌素材 → 制作工具 → 三版分镜 → 逐镜静帧 → 动效与修改 → MP4。",
+        "step": 0,
+        "instruction": "【进入本页，先不要点击】右侧是之前的 Claude / 3D Daily 样片。先说下面这段。",
         "say": [
-          "第一条讲的是，把找到的好素材剪成视频。第二部分，我想换一个更直接能借来用的方法：让 Claude 帮我们制作动效视频。比如产品介绍里，界面怎么进入画面，哪一个功能先被看到，标题什么时候出现，这些都可以用代码来组织。",
-          "最近看到一篇经验分享，很像我们做内容时会碰到的问题：别人说一条提示词就能出很好的视频，自己照着试，结果却很普通。它分享的关键，是在生成之前准备参考和真实素材，中间先选分镜、确认静帧，最后再逐镜修改。这里我分享的是这套方法，不把它说成我们已经验证过的制作成绩。",
+          "第二部分先看一下之前这条用 Claude 做的 3D Daily 视频。大家先留意画面怎么运动、重点怎么被突出，以及画面和解说怎么配合。先把它完整看一遍，再拆后面的制作方法。"
+        ]
+      },
+      {
+        "action": "play",
+        "instruction": "【播放视频】点击“播放 Claude 样片”，停下口播，完整播放约 39 秒。需要放大时点击“全屏看视频”，播完退出全屏并保持本页。",
+        "say": []
+      },
+      {
+        "action": "resume",
+        "instruction": "【视频播放结束后，继续口播】保持本页，先讲完下面内容，再翻页。",
+        "say": [
+          "刚才是之前的 3D Daily 样片。接下来我想分享一套可以借过来做产品动效的方法：给 Claude 参考和真实素材，先选分镜、确认静帧，再用代码制作、渲染和修改。这套参考方法不等于刚才那条样片已经使用了后面介绍的所有工具。",
           "对运营来说，这套方法有意思的地方是，我们不需要先把每一种动画都学会，但要把要求给具体。要给谁看，先看懂哪个功能，最后希望他做什么，这些得由我们确定。Claude 再把这些要求落实到镜头和代码里。",
           "下面我按制作顺序拆开。大家可以带着一个自己的需求来想：如果明天要介绍一个新功能，我需要准备什么，又应该在什么地方停下来确认，才不会到最后整条重做。"
-        ],
-        "step": 0
+        ]
       }
     ],
     "speakerExit": "【翻页】说完上段后，点击底部“继续”1 次，进入第 11 页「先给参考和真实产品素材」。本页没有分步动画，这次点击会直接翻页。"
