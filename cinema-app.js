@@ -54,8 +54,10 @@ function selectCover(n,broadcast=true,focus=false){
  $('slide').querySelectorAll('[data-cover-card]').forEach(card=>{
   const id=Number(card.dataset.coverCard),selected=id===coverSelection;
   card.dataset.slot=selected?'front':(id-coverSelection+3)%3===1?'right':'left';
-  card.setAttribute('aria-pressed',String(selected));
+  if(card.matches('button'))card.setAttribute('aria-pressed',String(selected));
+  else card.setAttribute('aria-current',String(selected));
   card.setAttribute('aria-label',selected?`${card.dataset.cardName} 当前正面 点击切换下一张`:`展示 ${card.dataset.cardName}`);
+  if(!selected)card.querySelectorAll('video').forEach(video=>video.pause());
   if(selected&&focus)card.focus({preventScroll:true});
  });
  if(broadcast)sync();
@@ -63,8 +65,9 @@ function selectCover(n,broadcast=true,focus=false){
 function bindCover(){
  selectCover(coverSelection,false);
  $('slide').querySelectorAll('[data-cover-card]').forEach(card=>{
-  card.onclick=()=>{const id=Number(card.dataset.coverCard);selectCover(id===coverSelection?id+1:id);wake();};
+  card.onclick=e=>{if(card.dataset.slot==='front'&&e.target.closest('video'))return;const id=Number(card.dataset.coverCard);selectCover(id===coverSelection?id+1:id);wake();};
   card.onkeydown=e=>{
+   if(e.target.closest('video'))return;
    if(e.ctrlKey||e.metaKey||e.altKey||!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;
    e.preventDefault();e.stopPropagation();
    selectCover(e.key==='Home'?0:e.key==='End'?2:coverSelection+(e.key==='ArrowRight'?1:-1),true,true);wake();
@@ -72,7 +75,7 @@ function bindCover(){
  });
 }
 function bindArchitecture(){
- $('slide').querySelectorAll('.arch-node[data-arch-step],.arch-picture[data-arch-step]').forEach(el=>{
+ $('slide').querySelectorAll('.arch-node[data-arch-step],.arch-picture[data-arch-step],[data-slide-id^="holly-"] .ai-brain[data-arch-step],[data-slide-id^="holly-"] .record-check[data-arch-step],[data-slide-id^="holly-"] .reddit-skill-rows section[data-arch-step],[data-slide-id^="holly-"] .reddit-local-repair[data-arch-step]').forEach(el=>{
   const phase=Number(el.dataset.archStep),name=el.querySelector('h2')?.textContent||el.querySelector('img')?.alt||'产线环节';
   el.setAttribute('role','button');el.tabIndex=0;el.title='点击聚焦此环节';el.setAttribute('aria-label',`聚焦：${name}`);
   const select=()=>{step=phase;reveal(true);wake();sync()};
@@ -126,13 +129,13 @@ function render(broadcast=true){const s=deck[index];$('slide').querySelectorAll(
  bindCover();bindArchitecture();maxStep=Math.max(0,...[...$('slide').querySelectorAll('[data-step],[data-arch-step]')].map(x=>Number(x.dataset.step??x.dataset.archStep)));step=Math.min(step,maxStep);reveal();fit();
  $('position').textContent=`${String(index+1).padStart(2,'0')} / ${deck.length}`;$('sectionLabel').textContent=s.section;$('progressFill').style.transform=`scaleX(${(index+1)/deck.length})`;
  $('notesTitle').textContent=s.title;$('presenterTitle').textContent=s.title;$('notesBody').innerHTML=notesMarkup(s);$('presenterNotes').innerHTML=notesMarkup(s);$('nextTitle').textContent=index+1<deck.length?'下一页：'+deck[index+1].title:'演示结束';
- history.replaceState(null,'',`#${index+1}`);document.title=`${s.title} | 内容产线`;
+ history.replaceState(null,'',`#${index+1}`);document.title=`${s.title} | AI剪辑产线`;
  if(motion&&lastRenderedIndex!==index&&lastRenderedIndex!==-1)animations.push($('slide').querySelector('.scene-body').animate([{opacity:.6,translate:`${index>lastRenderedIndex?18:-18}px 0`},{opacity:1,translate:'0 0'}],{duration:320,easing:'cubic-bezier(.16,1,.3,1)'}));
  lastRenderedIndex=index;
  [...$('slide').querySelectorAll('[data-animate]')].forEach((el,i)=>animate(el,Math.min(i*65,195)));$('slide').querySelectorAll('[data-count]').forEach(count);
  const video=$('slide').querySelector('video'),play=$('slide').querySelector('[data-play-video]');
- if(video&&play){play.onclick=()=>{if(!video.paused){video.pause();return}video.play().catch(()=>toast('请使用样片播放器中的播放按钮重试'));};
-  for(const kind of ['play','pause','ended','seeked','ratechange'])video.addEventListener(kind,()=>{if(currentVideo()!==video||retiredVideos.has(video))return;play.textContent=video.ended?'重播样片':video.paused?'继续播放':'暂停样片';$('slide').classList.toggle('video-playing',!video.paused);publishMedia(kind)});
+ if(video&&play){play.onclick=()=>{if(!video.paused){video.pause();return}const card=video.closest('[data-cover-card]');if(card)selectCover(Number(card.dataset.coverCard));video.play().catch(()=>toast('请使用样片播放器中的播放按钮重试'));};
+  for(const kind of ['play','pause','ended','seeked','ratechange'])video.addEventListener(kind,()=>{if(currentVideo()!==video||retiredVideos.has(video))return;const label=video.closest('[data-cover-card]')?' 3D 样片':'样片';play.textContent=video.ended?`重播${label}`:video.paused?`继续播放${label}`:`暂停${label}`;$('slide').classList.toggle('video-playing',!video.paused);publishMedia(kind)});
   video.addEventListener('loadedmetadata',()=>{if(currentVideo()===video&&mediaState)applyMedia(mediaState)});
   video.addEventListener('volumechange',()=>{if(currentVideo()===video&&!isAudioOwner()&&!video.muted)updateAudio()});
   video.addEventListener('error',()=>toast('样片暂时无法加载，请检查本地 assets 文件夹'));updateAudio();mediaState=videoSnapshot();}

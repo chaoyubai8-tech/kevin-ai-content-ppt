@@ -1,10 +1,10 @@
-# Kevin AI content presentation
+# AI剪辑产线
 
-Static HTML presentation with 22 slides, three video samples and a 38:40 speaker script. Published with GitHub Pages.
+Public HTML presentation with 25 slides, three video samples and a 45:20 speaker script. Published via GitHub Pages at https://chaoyubai8-tech.github.io/kevin-ai-content-ppt/ .
 
-The original Claude / 3D Daily sample is playable on slide 10, before the new motion-workflow explanation. It is not claimed to have been produced with all of the newly introduced tools.
+The original 3D Daily sample remains playable on slide 10. Slides 10–16 adapt all seven pages of the supplied 3d-daily-social.pptx to Kevin's existing visual style. HolyMolly follows the six-page holly-deck(1).zip revision on slides 17–22. Speaker notes and colored click/page-change cues follow the final order.
 
-Updated 2026-10-14: section two now presents a reference workflow for Claude motion graphics (reference and brand assets, storyboards, still-frame review, HyperFrames or Remotion rendering, directed revisions and reusable Skills). It is not presented as a verified production result. Full speaker notes include color-coded click, playback and page-change cues.
+Updated locally 2026-10-15: Daily 3D Knowledge addresses one core problem: making 3D papers understandable through visualization. The user's paper website feeds papers to Claude; Claude 5.5 writes the explanation logic and three.js presents it as 3D animation. HolyMolly is replaced by all seven slides from the supplied holly-deck.zip, including the original diagrams, Snowball sample, five-part storyboard and Skills. The previously requested production/sharing wording is retained on its opening slide, with the brand normalized to HolyMolly. Full speaker notes include color-coded click, playback and page-change cues.
 
 Open the Pages URL, or serve this folder locally. Arrow keys or the on-screen controls advance steps and slides. N opens notes, G opens the overview, F enters fullscreen.
 
